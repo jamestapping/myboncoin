@@ -17,17 +17,18 @@ class ListingCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        image.backgroundColor = UIColor.orange
         image.translatesAutoresizingMaskIntoConstraints = false
         title.translatesAutoresizingMaskIntoConstraints = false
         category.translatesAutoresizingMaskIntoConstraints = false
         price.translatesAutoresizingMaskIntoConstraints = false
+        image.sizeToFit()
         
         let backgroundView = UIView()
-        backgroundView.backgroundColor = UIColor.orange
+        backgroundView.backgroundColor = UIColor.clear
         self.selectedBackgroundView = backgroundView
         
         self.accessoryType = .disclosureIndicator
+        self.selectionStyle = .none
 
         contentView.addSubview(category)
         contentView.addSubview(title)
@@ -41,11 +42,13 @@ class ListingCell: UITableViewCell {
             "price" : price,
             ] as [String : Any]
 
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[image(75)]-|", options: [], metrics: nil, views: viewsDict))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[category]-[title]-[price]-|", options: [.alignAllLeading], metrics: nil, views: viewsDict))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[image(75)]-[category]-|", options: [], metrics: nil, views: viewsDict))
+        contentView.addConstraint(NSLayoutConstraint(item: viewsDict["image"]!, attribute: .height, relatedBy: .equal, toItem: viewsDict["image"]!, attribute: .width, multiplier: 1.0, constant: 0))
+
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[image]-|", options: [], metrics: nil, views: viewsDict))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[category]-0-[title]-0-[price]-|", options: [.alignAllLeading], metrics: nil, views: viewsDict))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-[image]-[category]-|", options: [], metrics: nil, views: viewsDict))
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[image]-[title]-|", options: [], metrics: nil, views: viewsDict))
-        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[image]-[price]-|", options: [], metrics: nil, views: viewsDict))
+        contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[image(75)]-[price]-|", options: [], metrics: nil, views: viewsDict))
     }
 
     required init?(coder aDecoder: NSCoder) {

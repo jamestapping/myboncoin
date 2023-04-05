@@ -99,17 +99,22 @@ extension ListingVC: UITableViewDelegate, UITableViewDataSource {
         let selectedCategoryID = selectedCategoryIDArray.first
         listing = selectedCategoryID == nil ? listings[indexPath.row] : filteredListings[indexPath.row]
         let categoryNames = Category.categoryNames(from: categories)
-        cell.category.font = UIFont.boldSystemFont(ofSize: 17)
+        cell.category.font = UIFont.boldSystemFont(ofSize: 16)
         cell.category.text = categoryNames[listing.categoryID - 1]
         cell.title.text = listing.title
-        cell.image.downloadImage(from: listing.imagesURL.thumb ?? "")
+        cell.title.font = UIFont.systemFont(ofSize: 14)
+        cell.title.numberOfLines = 2
+        cell.image.fetchImage(from: listing.imagesURL.thumb ?? "")
         cell.price.text = listing.price.euroCurrencyString
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailVC = ListingDetailVC()
-        detailVC.selectedListing = listings[indexPath.item]
+        let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID}
+        let selectedCategoryID = selectedCategoryIDArray.first
+        
+        detailVC.selectedListing = selectedCategoryID == nil ? listings[indexPath.item] : filteredListings[indexPath.item]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

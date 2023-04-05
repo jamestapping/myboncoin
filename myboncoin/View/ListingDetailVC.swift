@@ -28,7 +28,6 @@ class ListingDetailVC: UIViewController {
      
         let window = UIApplication.shared.windows.first(where: \.isKeyWindow)
         let barHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        
         let displayWidth: CGFloat = self.view.frame.width
         let displayHeight: CGFloat = self.view.frame.height
         
@@ -49,13 +48,14 @@ extension ListingDetailVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell", for: indexPath) as! DetailCell
         
-        cell.image.downloadImage(from: selectedListing?.imagesURL.small ?? "")
+        cell.image.fetchImage(from: selectedListing?.imagesURL.small ?? "")
         cell.title.text = selectedListing?.title
         cell.title.numberOfLines = 0
         cell.title.font = UIFont.boldSystemFont(ofSize: 17)
         cell.descriptionLabel.text = selectedListing?.description
         cell.descriptionLabel.numberOfLines = 0
         cell.price.text = selectedListing?.price.euroCurrencyString
+        cell.date.text = selectedListing?.formattedDate
         return cell
     }
 }

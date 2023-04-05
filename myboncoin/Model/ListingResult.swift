@@ -26,6 +26,14 @@ struct Listing: Decodable {
         case isUrgent = "is_urgent"
         case siret
     }
+    
+    var formattedDate: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let newDate = dateFormatter.date(from: creationDate )
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM d, yyyy")
+        return dateFormatter.string(from: newDate ?? Date())
+    }
 }
 
 struct ImagesURL: Codable {
