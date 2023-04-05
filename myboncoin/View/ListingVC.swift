@@ -29,7 +29,7 @@ class ListingVC: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         navigationItem.title = "myBonCoin"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filter))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filtrer", style: .plain, target: self, action: #selector(filter))
         
         let window = UIApplication.shared.windows.first(where: \.isKeyWindow)
         let barHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
@@ -43,36 +43,31 @@ class ListingVC: UIViewController {
         tableView.delegate = self
         self.view.addSubview(tableView)
         
+        let apiVM = APIViewModel()
+        
         let dispatchGroup = DispatchGroup()
         
-        let vm = APIViewModel()
-        
         dispatchGroup.enter()
-        vm.fetch(url: .listings, type: Listing.self) { res in
+        apiVM.fetch(url: .listings, type: Listing.self) { res in
             switch res {
             case .success(let data):
                 self.listings = data
-                
             case .failure(let error):
                 print (error)
             }
             dispatchGroup.leave()
         }
         dispatchGroup.enter()
-        vm.fetch(url: .categories, type: Category.self) { res in
+        apiVM.fetch(url: .categories, type: Category.self) { res in
             switch res {
             case .success(let data):
                 self.categories = data
-        
-                var items: [CategoryItemViewModel] = []
-                
+                // var items: [CategoryItemViewModel] = []
                 let categoryNames = Category.categoryNames(from: self.categories)
-                for (i, categoryName) in categoryNames.enumerated() {
-                    let item = CategoryItemViewModel(categoryItem: Filter(categoryID: i + 1, title: categoryName))
-                    items.append(item)
+                let items = categoryNames.enumerated().map { index, categoryName in
+                    CategoryItemViewModel(categoryItem: Filter(categoryID: index + 1, title: categoryName))
                 }
                 self.filterVM.items = items
-                
             case .failure(let error):
                 print (error)
             }
@@ -99,6 +94,7 @@ extension ListingVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let listing: Listing
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell", for: indexPath) as! ListingCell
+        cell.image.image = nil
         let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID}
         let selectedCategoryID = selectedCategoryIDArray.first
         listing = selectedCategoryID == nil ? listings[indexPath.row] : filteredListings[indexPath.row]
@@ -109,6 +105,12 @@ extension ListingVC: UITableViewDelegate, UITableViewDataSource {
         cell.image.downloadImage(from: listing.imagesURL.thumb ?? "")
         cell.price.text = listing.price.euroCurrencyString
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = ListingDetailVC()
+        detailVC.selectedListing = listings[indexPath.item]
+        self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
