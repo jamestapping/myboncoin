@@ -12,7 +12,7 @@ class FilterCell: UITableViewCell {
     
     let categoryLabel = UILabel()
   
-    var item: ViewModelItem? {
+    var item: CategoryItemViewModel? {
        didSet {
            categoryLabel.text = item?.title
        }

@@ -17,7 +17,7 @@ class ListingCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        image.backgroundColor = UIColor.blue
+        image.backgroundColor = UIColor.orange
         image.translatesAutoresizingMaskIntoConstraints = false
         title.translatesAutoresizingMaskIntoConstraints = false
         category.translatesAutoresizingMaskIntoConstraints = false

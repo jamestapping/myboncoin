@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ViewModel {
+class APIViewModel {
     func fetch<T: Decodable>(url: URLString, type: T.Type, completionHandler: @escaping (Result<[T], Error>) -> Void) {
         let service = APIService()
         service.fetch(url: URL(string: url.value), type: type) { result in

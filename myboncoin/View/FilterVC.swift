@@ -9,12 +9,14 @@ import UIKit
 
 class FilterVC: UIViewController {
 
-    let vm = FilterViewModel.shared
+    let filterVM = FilterViewModel.shared
     
     private var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Filtrer par categorie"
         
         let window = UIApplication.shared.windows.first(where: \.isKeyWindow)
         let barHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
@@ -32,35 +34,33 @@ class FilterVC: UIViewController {
         
         tableView.reloadData()
     }
-
 }
 
 extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
     UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath as IndexPath) as! FilterCell
-        cell.item = vm.items[indexPath.row]
-        cell.textLabel?.text = vm.items[indexPath.row].title
+        cell.item = filterVM.items[indexPath.row]
+        cell.textLabel?.text = filterVM.items[indexPath.row].title
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vm.items.count
+        return filterVM.items.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        for item in vm.items { item.isSelected = false }
-        vm.items[indexPath.row].isSelected = true
+        for item in filterVM.items { item.isSelected = false }
+        filterVM.items[indexPath.row].isSelected = true
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let currentIndexPath = tableView.indexPathForSelectedRow {
             self.tableView.cellForRow(at: currentIndexPath)?.accessoryType = .none
-            for item in vm.items { item.isSelected = false }
-            vm.items[indexPath.row].isSelected = false
+            for item in filterVM.items { item.isSelected = false }
+            filterVM.items[indexPath.row].isSelected = false
         }
         return indexPath
     }
