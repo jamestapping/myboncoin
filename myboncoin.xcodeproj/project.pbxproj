@@ -1,0 +1,665 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7D6190A829DAEF2D00A58467 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6190A729DAEF2D00A58467 /* AppDelegate.swift */; };
+		7D6190AA29DAEF2D00A58467 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6190A929DAEF2D00A58467 /* SceneDelegate.swift */; };
+		7D6190AC29DAEF2D00A58467 /* ListingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6190AB29DAEF2D00A58467 /* ListingVC.swift */; };
+		7D6190B129DAEF2E00A58467 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D6190B029DAEF2E00A58467 /* Assets.xcassets */; };
+		7D6190B429DAEF2E00A58467 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D6190B229DAEF2E00A58467 /* LaunchScreen.storyboard */; };
+		7D6190BF29DAEF2E00A58467 /* myboncoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6190BE29DAEF2E00A58467 /* myboncoinTests.swift */; };
+		7D6190C929DAEF2E00A58467 /* myboncoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6190C829DAEF2E00A58467 /* myboncoinUITests.swift */; };
+		7D6190CB29DAEF2E00A58467 /* myboncoinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6190CA29DAEF2E00A58467 /* myboncoinUITestsLaunchTests.swift */; };
+		7D6190DC29DAF92400A58467 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6190DB29DAF92400A58467 /* ViewModel.swift */; };
+		7D6190E029DAF9CC00A58467 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D6190DF29DAF9CC00A58467 /* ApiError.swift */; };
+		7D61912029DB00EB00A58467 /* ListingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D61911F29DB00EB00A58467 /* ListingResult.swift */; };
+		7D61912429DB06A200A58467 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D61912329DB06A200A58467 /* APIService.swift */; };
+		7D61912629DB6C2300A58467 /* CategoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D61912529DB6C2300A58467 /* CategoryResult.swift */; };
+		7D61912829DC22F300A58467 /* ListingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D61912729DC22F300A58467 /* ListingCell.swift */; };
+		7D61912A29DC2E3F00A58467 /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D61912929DC2E3F00A58467 /* Extension + UIImageView.swift */; };
+		7D7EE24A29DC5B9700FA2B77 /* Extension + Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D7EE24929DC5B9700FA2B77 /* Extension + Int.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7D6190BB29DAEF2E00A58467 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D61909C29DAEF2D00A58467 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D6190A329DAEF2D00A58467;
+			remoteInfo = myboncoin;
+		};
+		7D6190C529DAEF2E00A58467 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7D61909C29DAEF2D00A58467 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D6190A329DAEF2D00A58467;
+			remoteInfo = myboncoin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7D6190A429DAEF2D00A58467 /* myboncoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myboncoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D6190A729DAEF2D00A58467 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7D6190A929DAEF2D00A58467 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7D6190AB29DAEF2D00A58467 /* ListingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingVC.swift; sourceTree = "<group>"; };
+		7D6190B029DAEF2E00A58467 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D6190B329DAEF2E00A58467 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D6190B529DAEF2E00A58467 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D6190BA29DAEF2E00A58467 /* myboncoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myboncoinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D6190BE29DAEF2E00A58467 /* myboncoinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myboncoinTests.swift; sourceTree = "<group>"; };
+		7D6190C429DAEF2E00A58467 /* myboncoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myboncoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D6190C829DAEF2E00A58467 /* myboncoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myboncoinUITests.swift; sourceTree = "<group>"; };
+		7D6190CA29DAEF2E00A58467 /* myboncoinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myboncoinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7D6190DB29DAF92400A58467 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		7D6190DF29DAF9CC00A58467 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		7D61911F29DB00EB00A58467 /* ListingResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingResult.swift; sourceTree = "<group>"; };
+		7D61912329DB06A200A58467 /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		7D61912529DB6C2300A58467 /* CategoryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryResult.swift; sourceTree = "<group>"; };
+		7D61912729DC22F300A58467 /* ListingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCell.swift; sourceTree = "<group>"; };
+		7D61912929DC2E3F00A58467 /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
+		7D7EE24929DC5B9700FA2B77 /* Extension + Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Int.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7D6190A129DAEF2D00A58467 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D6190B729DAEF2E00A58467 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D6190C129DAEF2E00A58467 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7D61909B29DAEF2D00A58467 = {
+			isa = PBXGroup;
+			children = (
+				7D6190A629DAEF2D00A58467 /* myboncoin */,
+				7D6190BD29DAEF2E00A58467 /* myboncoinTests */,
+				7D6190C729DAEF2E00A58467 /* myboncoinUITests */,
+				7D6190A529DAEF2D00A58467 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7D6190A529DAEF2D00A58467 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D6190A429DAEF2D00A58467 /* myboncoin.app */,
+				7D6190BA29DAEF2E00A58467 /* myboncoinTests.xctest */,
+				7D6190C429DAEF2E00A58467 /* myboncoinUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7D6190A629DAEF2D00A58467 /* myboncoin */ = {
+			isa = PBXGroup;
+			children = (
+				7D6190DA29DAF30C00A58467 /* Service */,
+				7D6190D929DAF2C400A58467 /* ViewModel */,
+				7D6190D829DAF2AF00A58467 /* View */,
+				7D6190D729DAF2A900A58467 /* Model */,
+				7D61912B29DC2E6400A58467 /* Extensions */,
+				7D6190A729DAEF2D00A58467 /* AppDelegate.swift */,
+				7D6190A929DAEF2D00A58467 /* SceneDelegate.swift */,
+				7D6190B029DAEF2E00A58467 /* Assets.xcassets */,
+				7D6190B229DAEF2E00A58467 /* LaunchScreen.storyboard */,
+				7D6190B529DAEF2E00A58467 /* Info.plist */,
+			);
+			path = myboncoin;
+			sourceTree = "<group>";
+		};
+		7D6190BD29DAEF2E00A58467 /* myboncoinTests */ = {
+			isa = PBXGroup;
+			children = (
+				7D6190BE29DAEF2E00A58467 /* myboncoinTests.swift */,
+			);
+			path = myboncoinTests;
+			sourceTree = "<group>";
+		};
+		7D6190C729DAEF2E00A58467 /* myboncoinUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7D6190C829DAEF2E00A58467 /* myboncoinUITests.swift */,
+				7D6190CA29DAEF2E00A58467 /* myboncoinUITestsLaunchTests.swift */,
+			);
+			path = myboncoinUITests;
+			sourceTree = "<group>";
+		};
+		7D6190D729DAF2A900A58467 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7D61911F29DB00EB00A58467 /* ListingResult.swift */,
+				7D61912529DB6C2300A58467 /* CategoryResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7D6190D829DAF2AF00A58467 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7D6190AB29DAEF2D00A58467 /* ListingVC.swift */,
+				7D61912729DC22F300A58467 /* ListingCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7D6190D929DAF2C400A58467 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7D6190DB29DAF92400A58467 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7D6190DA29DAF30C00A58467 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7D61912329DB06A200A58467 /* APIService.swift */,
+				7D6190DF29DAF9CC00A58467 /* ApiError.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7D61912B29DC2E6400A58467 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7D61912929DC2E3F00A58467 /* Extension + UIImageView.swift */,
+				7D7EE24929DC5B9700FA2B77 /* Extension + Int.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7D6190A329DAEF2D00A58467 /* myboncoin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D6190CE29DAEF2E00A58467 /* Build configuration list for PBXNativeTarget "myboncoin" */;
+			buildPhases = (
+				7D6190A029DAEF2D00A58467 /* Sources */,
+				7D6190A129DAEF2D00A58467 /* Frameworks */,
+				7D6190A229DAEF2D00A58467 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = myboncoin;
+			productName = myboncoin;
+			productReference = 7D6190A429DAEF2D00A58467 /* myboncoin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7D6190B929DAEF2E00A58467 /* myboncoinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D6190D129DAEF2E00A58467 /* Build configuration list for PBXNativeTarget "myboncoinTests" */;
+			buildPhases = (
+				7D6190B629DAEF2E00A58467 /* Sources */,
+				7D6190B729DAEF2E00A58467 /* Frameworks */,
+				7D6190B829DAEF2E00A58467 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D6190BC29DAEF2E00A58467 /* PBXTargetDependency */,
+			);
+			name = myboncoinTests;
+			productName = myboncoinTests;
+			productReference = 7D6190BA29DAEF2E00A58467 /* myboncoinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7D6190C329DAEF2E00A58467 /* myboncoinUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D6190D429DAEF2E00A58467 /* Build configuration list for PBXNativeTarget "myboncoinUITests" */;
+			buildPhases = (
+				7D6190C029DAEF2E00A58467 /* Sources */,
+				7D6190C129DAEF2E00A58467 /* Frameworks */,
+				7D6190C229DAEF2E00A58467 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D6190C629DAEF2E00A58467 /* PBXTargetDependency */,
+			);
+			name = myboncoinUITests;
+			productName = myboncoinUITests;
+			productReference = 7D6190C429DAEF2E00A58467 /* myboncoinUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7D61909C29DAEF2D00A58467 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					7D6190A329DAEF2D00A58467 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					7D6190B929DAEF2E00A58467 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 7D6190A329DAEF2D00A58467;
+					};
+					7D6190C329DAEF2E00A58467 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 7D6190A329DAEF2D00A58467;
+					};
+				};
+			};
+			buildConfigurationList = 7D61909F29DAEF2D00A58467 /* Build configuration list for PBXProject "myboncoin" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7D61909B29DAEF2D00A58467;
+			productRefGroup = 7D6190A529DAEF2D00A58467 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7D6190A329DAEF2D00A58467 /* myboncoin */,
+				7D6190B929DAEF2E00A58467 /* myboncoinTests */,
+				7D6190C329DAEF2E00A58467 /* myboncoinUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7D6190A229DAEF2D00A58467 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D6190B429DAEF2E00A58467 /* LaunchScreen.storyboard in Resources */,
+				7D6190B129DAEF2E00A58467 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D6190B829DAEF2E00A58467 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D6190C229DAEF2E00A58467 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7D6190A029DAEF2D00A58467 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D6190AC29DAEF2D00A58467 /* ListingVC.swift in Sources */,
+				7D6190A829DAEF2D00A58467 /* AppDelegate.swift in Sources */,
+				7D61912629DB6C2300A58467 /* CategoryResult.swift in Sources */,
+				7D61912829DC22F300A58467 /* ListingCell.swift in Sources */,
+				7D61912029DB00EB00A58467 /* ListingResult.swift in Sources */,
+				7D61912429DB06A200A58467 /* APIService.swift in Sources */,
+				7D6190DC29DAF92400A58467 /* ViewModel.swift in Sources */,
+				7D6190E029DAF9CC00A58467 /* ApiError.swift in Sources */,
+				7D6190AA29DAEF2D00A58467 /* SceneDelegate.swift in Sources */,
+				7D7EE24A29DC5B9700FA2B77 /* Extension + Int.swift in Sources */,
+				7D61912A29DC2E3F00A58467 /* Extension + UIImageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D6190B629DAEF2E00A58467 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D6190BF29DAEF2E00A58467 /* myboncoinTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D6190C029DAEF2E00A58467 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D6190C929DAEF2E00A58467 /* myboncoinUITests.swift in Sources */,
+				7D6190CB29DAEF2E00A58467 /* myboncoinUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7D6190BC29DAEF2E00A58467 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D6190A329DAEF2D00A58467 /* myboncoin */;
+			targetProxy = 7D6190BB29DAEF2E00A58467 /* PBXContainerItemProxy */;
+		};
+		7D6190C629DAEF2E00A58467 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D6190A329DAEF2D00A58467 /* myboncoin */;
+			targetProxy = 7D6190C529DAEF2E00A58467 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7D6190B229DAEF2E00A58467 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D6190B329DAEF2E00A58467 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7D6190CC29DAEF2E00A58467 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7D6190CD29DAEF2E00A58467 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7D6190CF29DAEF2E00A58467 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z395QVG78R;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = myboncoin/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tapping.com.myboncoin.myboncoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7D6190D029DAEF2E00A58467 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z395QVG78R;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = myboncoin/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tapping.com.myboncoin.myboncoin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7D6190D229DAEF2E00A58467 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z395QVG78R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tapping.com.myboncoin.myboncoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myboncoin.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/myboncoin";
+			};
+			name = Debug;
+		};
+		7D6190D329DAEF2E00A58467 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z395QVG78R;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tapping.com.myboncoin.myboncoinTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/myboncoin.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/myboncoin";
+			};
+			name = Release;
+		};
+		7D6190D529DAEF2E00A58467 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z395QVG78R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tapping.com.myboncoin.myboncoinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = myboncoin;
+			};
+			name = Debug;
+		};
+		7D6190D629DAEF2E00A58467 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z395QVG78R;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = tapping.com.myboncoin.myboncoinUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = myboncoin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7D61909F29DAEF2D00A58467 /* Build configuration list for PBXProject "myboncoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D6190CC29DAEF2E00A58467 /* Debug */,
+				7D6190CD29DAEF2E00A58467 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D6190CE29DAEF2E00A58467 /* Build configuration list for PBXNativeTarget "myboncoin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D6190CF29DAEF2E00A58467 /* Debug */,
+				7D6190D029DAEF2E00A58467 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D6190D129DAEF2E00A58467 /* Build configuration list for PBXNativeTarget "myboncoinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D6190D229DAEF2E00A58467 /* Debug */,
+				7D6190D329DAEF2E00A58467 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D6190D429DAEF2E00A58467 /* Build configuration list for PBXNativeTarget "myboncoinUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D6190D529DAEF2E00A58467 /* Debug */,
+				7D6190D629DAEF2E00A58467 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7D61909C29DAEF2D00A58467 /* Project object */;
+}
