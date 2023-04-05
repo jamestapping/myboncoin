@@ -10,15 +10,26 @@ import UIKit
 class ListingVC: UIViewController {
     
     var listings: [Listing] = []
+    var filteredListings: [Listing] = []
     var categories: [Category] = []
+    let vm = FilterViewModel.shared
     
     private var tableView: UITableView!
     
+    override func viewDidAppear(_ animated: Bool) {
+           super.viewDidAppear(animated)
+          
+        let selectedCategoryIDArray = self.vm.selectedItems.map {$0.categoryID }
+        let selectedCategoryID = selectedCategoryIDArray.first
+        filteredListings = listings.filter({$0.categoryID == selectedCategoryID})
+        tableView.reloadData()
+       }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.view.backgroundColor = .white
         navigationItem.title = "myBonCoin"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(filter))
         
         let window = UIApplication.shared.windows.first(where: \.isKeyWindow)
         let barHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
@@ -40,7 +51,10 @@ class ListingVC: UIViewController {
         vm.fetch(url: .listings, type: Listing.self) { res in
             switch res {
             case .success(let data):
+                let selectedCategoryIDArray = self.vm.selectedItems.map {$0.categoryID}
+                let selectedCategoryID = selectedCategoryIDArray.first
                 self.listings = data
+                
             case .failure(let error):
                 print (error)
             }
@@ -51,6 +65,16 @@ class ListingVC: UIViewController {
             switch res {
             case .success(let data):
                 self.categories = data
+        
+                var items: [ViewModelItem] = []
+                
+                let categoryNames = Category.categoryNames(from: self.categories)
+                for (i, categoryName) in categoryNames.enumerated() {
+                    let item = ViewModelItem(item: Filter(categoryID: i + 1, title: categoryName))
+                    items.append(item)
+                }
+                self.vm.items = items
+                
             case .failure(let error):
                 print (error)
             }
@@ -60,16 +84,26 @@ class ListingVC: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    @objc func filter() {
+        let filterVC = FilterVC()
+        self.navigationController?.pushViewController(filterVC, animated: true)
+    }
 }
 
 extension ListingVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listings.count
+        let selectedCategoryIDArray = self.vm.selectedItems.map {$0.categoryID}
+        let selectedCategoryID = selectedCategoryIDArray.first
+        return selectedCategoryID == nil ? listings.count : filteredListings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let listing: Listing
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell", for: indexPath) as! ListingCell
-        let listing = listings[indexPath.row]
+        let selectedCategoryIDArray = self.vm.selectedItems.map {$0.categoryID}
+        let selectedCategoryID = selectedCategoryIDArray.first
+        listing = selectedCategoryID == nil ? listings[indexPath.row] : filteredListings[indexPath.row]
         let categoryNames = Category.categoryNames(from: categories)
         cell.category.font = UIFont.boldSystemFont(ofSize: 17)
         cell.category.text = categoryNames[listing.categoryID - 1]
