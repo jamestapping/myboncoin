@@ -111,7 +111,7 @@
 			children = (
 				7D6190A629DAEF2D00A58467 /* myboncoin */,
 				7D6190BD29DAEF2E00A58467 /* myboncoinTests */,
-				7DD33A1B29DEBC2300487620 /* JSON */,
+				7D6190BE29DAEF2E00A58467 /* myboncoinTests.swift */,
 				7D6190C729DAEF2E00A58467 /* myboncoinUITests */,
 				7D6190A529DAEF2D00A58467 /* Products */,
 			);
@@ -147,7 +147,7 @@
 		7D6190BD29DAEF2E00A58467 /* myboncoinTests */ = {
 			isa = PBXGroup;
 			children = (
-				7D6190BE29DAEF2E00A58467 /* myboncoinTests.swift */,
+				7DD33A1B29DEBC2300487620 /* JSON */,
 			);
 			path = myboncoinTests;
 			sourceTree = "<group>";
