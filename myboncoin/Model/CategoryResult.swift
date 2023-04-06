@@ -17,5 +17,11 @@ struct Category: Decodable {
     static func buildCategories(from categories: [Category]) -> [String] {
         return categories.compactMap { $0.name }
     }
+    
+    static func returnCategory(for categoryID: Int) -> String {
+        
+        
+        return ""
+    }
 }
 

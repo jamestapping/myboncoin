@@ -107,6 +107,10 @@ extension ListingVC: UITableViewDelegate, UITableViewDataSource {
         cell.title.numberOfLines = 2
         cell.image.fetchImage(from: listing.imagesURL.thumb ?? "")
         cell.price.text = listing.price.euroCurrencyString
+        cell.urgent.text = "Urgent"
+        cell.urgent.textColor = .white
+        cell.urgent.backgroundColor = .red
+        cell.urgent.isHidden = !listing.isUrgent
         return cell
     }
     
