@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Int {
+extension Double {
     var euroCurrencyString: String {
         let euroFormatter = NumberFormatter()
         euroFormatter.numberStyle = .currency

@@ -8,9 +8,7 @@
 import UIKit
 
 class FilterVC: UIViewController {
-
     let filterVM = FilterViewModel.shared
-    
     private var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -28,7 +26,6 @@ class FilterVC: UIViewController {
         tableView.register(FilterCell.self, forCellReuseIdentifier: "FilterCell")
         tableView.dataSource = self
         tableView.delegate = self
-        
         self.view.addSubview(tableView)
         self.view.backgroundColor = .white
         

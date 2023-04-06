@@ -55,7 +55,7 @@ extension ListingDetailVC: UITableViewDelegate, UITableViewDataSource {
         cell.descriptionLabel.text = selectedListing?.description
         cell.descriptionLabel.numberOfLines = 0
         cell.price.text = selectedListing?.price.euroCurrencyString
-        cell.date.text = selectedListing?.formattedDate
+        cell.date.text = "Publié le \(selectedListing?.formattedDate ?? "")"
         return cell
     }
 }

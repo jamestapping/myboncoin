@@ -11,7 +11,7 @@ struct Listing: Decodable {
     let id: Int
     let categoryID: Int
     let title, description: String
-    let price: Int
+    let price: Double
     let imagesURL: ImagesURL
     let creationDate: String
     let isUrgent: Bool
