@@ -22,13 +22,11 @@ class FilterVC: UIViewController {
         let displayHeight: CGFloat = self.view.frame.height
         
         tableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
-
         tableView.register(FilterCell.self, forCellReuseIdentifier: "FilterCell")
         tableView.dataSource = self
         tableView.delegate = self
         self.view.addSubview(tableView)
         self.view.backgroundColor = .white
-        
         tableView.reloadData()
     }
 }

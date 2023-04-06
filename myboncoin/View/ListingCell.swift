@@ -55,11 +55,19 @@ class ListingCell: UITableViewCell {
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:[image(75)]-[price]-[urgent]-|", options: [], metrics: nil, views: viewsDict))
     }
     
-    func setUpCell(vm: ListingCellViewModel) {
-        self.image.image = vm.image
-        self.title.text = vm.title
-        self.price.text = vm.price
-        self.category.text = vm.categoryString
+    func setUpCell(listing: Listing, categories: [Category]) {
+        self.image.image = nil
+        self.image.fetchImage(from: listing.imagesURL.thumb ?? "")
+        self.title.text = listing.title
+        self.title.font = UIFont.systemFont(ofSize: 14)
+        self.title.numberOfLines = 2
+        self.price.text = listing.price.euroCurrencyString
+        self.category.font = UIFont.boldSystemFont(ofSize: 16)
+        self.category.text = categories[listing.categoryID - 1].name
+        self.urgent.text = "Urgent"
+        self.urgent.textColor = .white
+        self.urgent.backgroundColor = .red
+        self.urgent.isHidden = !listing.isUrgent
     }
 
     required init?(coder aDecoder: NSCoder) {

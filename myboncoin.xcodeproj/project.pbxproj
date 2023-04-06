@@ -31,7 +31,6 @@
 		7DD33A1629DE0A4600487620 /* ListingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD33A1529DE0A4600487620 /* ListingDetailVC.swift */; };
 		7DD33A1829DE1A7300487620 /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD33A1729DE1A7300487620 /* DetailCell.swift */; };
 		7DD33A1A29DEBBF100487620 /* listing_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 7DD33A1929DEBBF100487620 /* listing_test.json */; };
-		7DD33A1D29DEF71200487620 /* ListingCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD33A1C29DEF71200487620 /* ListingCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +79,6 @@
 		7DD33A1529DE0A4600487620 /* ListingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingDetailVC.swift; sourceTree = "<group>"; };
 		7DD33A1729DE1A7300487620 /* DetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
 		7DD33A1929DEBBF100487620 /* listing_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = listing_test.json; sourceTree = "<group>"; };
-		7DD33A1C29DEF71200487620 /* ListingCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListingCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +190,6 @@
 				7D6190DB29DAF92400A58467 /* APIViewModel.swift */,
 				7DD33A1129DE081800487620 /* CategoryItemViewModel.swift */,
 				7DD33A1329DE083E00487620 /* FilterViewModel.swift */,
-				7DD33A1C29DEF71200487620 /* ListingCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -358,7 +355,6 @@
 				7D6190A829DAEF2D00A58467 /* AppDelegate.swift in Sources */,
 				7DD33A1829DE1A7300487620 /* DetailCell.swift in Sources */,
 				7DD33A1429DE083E00487620 /* FilterViewModel.swift in Sources */,
-				7DD33A1D29DEF71200487620 /* ListingCellViewModel.swift in Sources */,
 				7D61912629DB6C2300A58467 /* CategoryResult.swift in Sources */,
 				7D61912829DC22F300A58467 /* ListingCell.swift in Sources */,
 				7DD33A1629DE0A4600487620 /* ListingDetailVC.swift in Sources */,

@@ -52,6 +52,16 @@ class DetailCell: UITableViewCell {
         contentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-16-[date]-16-|", options: [], metrics: nil, views: viewsDict))
     }
     
+    func setUpCell(listing: Listing) {
+        self.image.image = nil
+        self.image.fetchImage(from: listing.imagesURL.small ?? "")
+        self.title.text = listing.title
+        self.title.numberOfLines = 0
+        self.title.font = UIFont.boldSystemFont(ofSize: 17)
+        self.price.text = listing.price.euroCurrencyString
+        self.date.text = "Publié le \(listing.formattedDate)"
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

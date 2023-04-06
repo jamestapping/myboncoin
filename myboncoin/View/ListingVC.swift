@@ -10,31 +10,41 @@ import UIKit
 class ListingVC: UIViewController {
     
     var listings: [Listing] = []
-    var filteredListing: [Listing] = []
+    var tmpListings: [Listing] = []
+    var tmpFilteredListings: [Listing] = []
+    var nonUrgentListings: [Listing] = []
+    var filteredListings: [Listing] = []
+    var urgentListings: [Listing] = []
+    
     var categories: [Category] = []
     let filterVM = FilterViewModel.shared
+    let apiVM = APIViewModel()
     
     private var tableView: UITableView!
     
     override func viewDidAppear(_ animated: Bool) {
            super.viewDidAppear(animated)
-          
-        let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID }
-        let selectedCategoryID = selectedCategoryIDArray.first
-        filteredListing = listings.filter({$0.categoryID == selectedCategoryID})
-        filteredListing.sort(by: { $0.date > $1.date })
-        tableView.reloadData()
-       }
+        
+        let selectedCategoryID = self.filterVM.selectedItems.map {$0.categoryID }.first
+        tmpFilteredListings = listings.filter({$0.categoryID == selectedCategoryID})
+        self.urgentListings = self.tmpFilteredListings.filter{ $0.isUrgent }
+        self.nonUrgentListings = self.tmpFilteredListings.filter{ $0.isUrgent == false }
+        self.urgentListings.sort(by: { $0.date > $1.date })
+        self.nonUrgentListings.sort(by: { $0.date > $1.date })
+        self.filteredListings = self.urgentListings + self.nonUrgentListings
+        
+        if selectedCategoryID != nil { tableView.reloadData()}
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = .white
         navigationItem.title = "myBonCoin"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filtrer", style: .plain, target: self, action: #selector(filter))
         
         let window = UIApplication.shared.windows.first(where: \.isKeyWindow)
         let barHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
-        
         let displayWidth: CGFloat = self.view.frame.width
         let displayHeight: CGFloat = self.view.frame.height
         
@@ -43,17 +53,28 @@ class ListingVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         self.view.addSubview(tableView)
-        
-        let apiVM = APIViewModel()
-        
+      
+        fetchData()
+    }
+    
+    @objc func filter() {
+        let filterVC = FilterVC()
+        self.navigationController?.pushViewController(filterVC, animated: true)
+    }
+    
+    func fetchData() {
         let dispatchGroup = DispatchGroup()
-        
         dispatchGroup.enter()
         apiVM.fetch(url: .listings, type: Listing.self) { res in
             switch res {
             case .success(let data):
-                self.listings = data
-                self.listings.sort(by: { $0.date > $1.date })
+                self.tmpListings = data
+                self.urgentListings = self.tmpListings.filter{ $0.isUrgent }
+                self.nonUrgentListings = self.tmpListings.filter{ $0.isUrgent == false }
+                self.urgentListings.sort(by: { $0.date > $1.date })
+                self.nonUrgentListings.sort(by: { $0.date > $1.date })
+                self.listings = self.urgentListings + self.nonUrgentListings
+                
             case .failure(let error):
                 print (error)
             }
@@ -78,39 +99,21 @@ class ListingVC: UIViewController {
             self.tableView.reloadData()
         }
     }
-    
-    @objc func filter() {
-        let filterVC = FilterVC()
-        self.navigationController?.pushViewController(filterVC, animated: true)
-    }
 }
 
 extension ListingVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID}
         let selectedCategoryID = selectedCategoryIDArray.first
-        return selectedCategoryID == nil ? listings.count : filteredListing.count
+        return selectedCategoryID == nil ? listings.count : filteredListings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let listing: Listing
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListingCell", for: indexPath) as! ListingCell
-        cell.image.image = nil
-        let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID}
-        let selectedCategoryID = selectedCategoryIDArray.first
-        listing = selectedCategoryID == nil ? listings[indexPath.row] : filteredListing[indexPath.row]
-        let categoryNames = Category.buildCategories(from: categories)
-        cell.category.font = UIFont.boldSystemFont(ofSize: 16)
-        cell.category.text = categoryNames[listing.categoryID - 1]
-        cell.title.text = listing.title
-        cell.title.font = UIFont.systemFont(ofSize: 14)
-        cell.title.numberOfLines = 2
-        cell.image.fetchImage(from: listing.imagesURL.thumb ?? "")
-        cell.price.text = listing.price.euroCurrencyString
-        cell.urgent.text = "Urgent"
-        cell.urgent.textColor = .white
-        cell.urgent.backgroundColor = .red
-        cell.urgent.isHidden = !listing.isUrgent
+        let selectedCategoryID = self.filterVM.selectedItems.map {$0.categoryID}.first
+        listing = selectedCategoryID == nil ? listings[indexPath.row] : filteredListings[indexPath.row]
+        cell.setUpCell(listing: listing, categories: categories)
         return cell
     }
     
@@ -118,8 +121,7 @@ extension ListingVC: UITableViewDelegate, UITableViewDataSource {
         let detailVC = ListingDetailVC()
         let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID}
         let selectedCategoryID = selectedCategoryIDArray.first
-        
-        detailVC.selectedListing = selectedCategoryID == nil ? listings[indexPath.item] : filteredListing[indexPath.item]
+        detailVC.selectedListing = selectedCategoryID == nil ? listings[indexPath.item] : filteredListings[indexPath.item]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
