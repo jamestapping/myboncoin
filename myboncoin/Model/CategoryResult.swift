@@ -14,7 +14,7 @@ struct Category: Decodable {
         case name
     }
     
-    static func categoryNames(from categories: [Category]) -> [String] {
+    static func buildCategories(from categories: [Category]) -> [String] {
         return categories.compactMap { $0.name }
     }
 }

@@ -20,7 +20,6 @@ class ListingDetailVC: UIViewController {
     let descriptionLabel = UILabel()
     let descriptionTextView = UITextView()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

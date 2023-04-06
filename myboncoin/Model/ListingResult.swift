@@ -34,6 +34,12 @@ struct Listing: Decodable {
         dateFormatter.setLocalizedDateFormatFromTemplate("MMMM d, yyyy")
         return dateFormatter.string(from: newDate ?? Date())
     }
+    
+    var date: Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        return dateFormatter.date(from: creationDate) ?? Date()
+    }
 }
 
 struct ImagesURL: Codable {

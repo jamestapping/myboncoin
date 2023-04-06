@@ -38,26 +38,26 @@ extension FilterVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) ->
     UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FilterCell", for: indexPath as IndexPath) as! FilterCell
-        cell.item = filterVM.items[indexPath.row]
-        cell.textLabel?.text = filterVM.items[indexPath.row].title
+        cell.item = filterVM.categoryItems[indexPath.row]
+        cell.textLabel?.text = filterVM.categoryItems[indexPath.row].title
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filterVM.items.count
+        return filterVM.categoryItems.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        for item in filterVM.items { item.isSelected = false }
-        filterVM.items[indexPath.row].isSelected = true
+        for item in filterVM.categoryItems { item.isSelected = false }
+        filterVM.categoryItems[indexPath.row].isSelected = true
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         if let currentIndexPath = tableView.indexPathForSelectedRow {
             self.tableView.cellForRow(at: currentIndexPath)?.accessoryType = .none
-            for item in filterVM.items { item.isSelected = false }
-            filterVM.items[indexPath.row].isSelected = false
+            for item in filterVM.categoryItems { item.isSelected = false }
+            filterVM.categoryItems[indexPath.row].isSelected = false
         }
         return indexPath
     }

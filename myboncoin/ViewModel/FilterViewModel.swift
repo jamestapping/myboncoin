@@ -9,8 +9,8 @@ import Foundation
 
 class FilterViewModel {
     static let shared = FilterViewModel()
-    var items = [CategoryItemViewModel]()
+    var categoryItems = [CategoryItemViewModel]()
     var selectedItems: [CategoryItemViewModel] {
-        return items.filter { return $0.isSelected }
+        return categoryItems.filter { return $0.isSelected }
     }
 }

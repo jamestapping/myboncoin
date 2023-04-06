@@ -10,7 +10,7 @@ import UIKit
 class ListingVC: UIViewController {
     
     var listings: [Listing] = []
-    var filteredListings: [Listing] = []
+    var filteredListing: [Listing] = []
     var categories: [Category] = []
     let filterVM = FilterViewModel.shared
     
@@ -21,7 +21,8 @@ class ListingVC: UIViewController {
           
         let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID }
         let selectedCategoryID = selectedCategoryIDArray.first
-        filteredListings = listings.filter({$0.categoryID == selectedCategoryID})
+        filteredListing = listings.filter({$0.categoryID == selectedCategoryID})
+        filteredListing.sort(by: { $0.date > $1.date })
         tableView.reloadData()
        }
 
@@ -52,6 +53,7 @@ class ListingVC: UIViewController {
             switch res {
             case .success(let data):
                 self.listings = data
+                self.listings.sort(by: { $0.date > $1.date })
             case .failure(let error):
                 print (error)
             }
@@ -62,12 +64,11 @@ class ListingVC: UIViewController {
             switch res {
             case .success(let data):
                 self.categories = data
-                // var items: [CategoryItemViewModel] = []
-                let categoryNames = Category.categoryNames(from: self.categories)
-                let items = categoryNames.enumerated().map { index, categoryName in
+                let categories = Category.buildCategories(from: self.categories)
+                let categoryItems = categories.enumerated().map { index, categoryName in
                     CategoryItemViewModel(categoryItem: Filter(categoryID: index + 1, title: categoryName))
                 }
-                self.filterVM.items = items
+                self.filterVM.categoryItems = categoryItems
             case .failure(let error):
                 print (error)
             }
@@ -88,7 +89,7 @@ extension ListingVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID}
         let selectedCategoryID = selectedCategoryIDArray.first
-        return selectedCategoryID == nil ? listings.count : filteredListings.count
+        return selectedCategoryID == nil ? listings.count : filteredListing.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,8 +98,8 @@ extension ListingVC: UITableViewDelegate, UITableViewDataSource {
         cell.image.image = nil
         let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID}
         let selectedCategoryID = selectedCategoryIDArray.first
-        listing = selectedCategoryID == nil ? listings[indexPath.row] : filteredListings[indexPath.row]
-        let categoryNames = Category.categoryNames(from: categories)
+        listing = selectedCategoryID == nil ? listings[indexPath.row] : filteredListing[indexPath.row]
+        let categoryNames = Category.buildCategories(from: categories)
         cell.category.font = UIFont.boldSystemFont(ofSize: 16)
         cell.category.text = categoryNames[listing.categoryID - 1]
         cell.title.text = listing.title
@@ -114,7 +115,7 @@ extension ListingVC: UITableViewDelegate, UITableViewDataSource {
         let selectedCategoryIDArray = self.filterVM.selectedItems.map {$0.categoryID}
         let selectedCategoryID = selectedCategoryIDArray.first
         
-        detailVC.selectedListing = selectedCategoryID == nil ? listings[indexPath.item] : filteredListings[indexPath.item]
+        detailVC.selectedListing = selectedCategoryID == nil ? listings[indexPath.item] : filteredListing[indexPath.item]
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
