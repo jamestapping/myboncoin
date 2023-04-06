@@ -130,10 +130,10 @@
 		7D6190A629DAEF2D00A58467 /* myboncoin */ = {
 			isa = PBXGroup;
 			children = (
-				7D6190DA29DAF30C00A58467 /* Service */,
-				7D6190D929DAF2C400A58467 /* ViewModel */,
 				7D6190D829DAF2AF00A58467 /* View */,
+				7D6190D929DAF2C400A58467 /* ViewModel */,
 				7D6190D729DAF2A900A58467 /* Model */,
+				7D6190DA29DAF30C00A58467 /* Service */,
 				7D61912B29DC2E6400A58467 /* Extensions */,
 				7D6190A729DAEF2D00A58467 /* AppDelegate.swift */,
 				7D6190A929DAEF2D00A58467 /* SceneDelegate.swift */,
